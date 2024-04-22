@@ -6,11 +6,12 @@ public class Casa extends ImovelConstruido{
     public Casa(){
     }
     
-    public Casa(String endereco, float preco, float m2, String tipoNegocio, String tipoImovel, int id, int quarto,
+    public Casa(String endereco, float preco, float m2, String tipoNegocio, int quarto,
             int banheiro, int vaga, float condominio, int pisos, String padrao, String resiComer, boolean quintal,
             boolean piscina) {
-        super(endereco, preco, m2, tipoNegocio, tipoImovel, id, quarto, banheiro, vaga, condominio, pisos, padrao,
+        super(endereco, preco, m2, tipoNegocio, quarto, banheiro, vaga, condominio, pisos, padrao,
                 resiComer);
+        setTipoImovel("CASA");
         this.quintal = quintal;
         this.piscina = piscina;
     }
@@ -28,5 +29,10 @@ public class Casa extends ImovelConstruido{
         this.piscina = piscina;
     }
     
-
+    @Override
+    public String toString() {
+        return super.toString() + 
+        "\nQUINTAL: " + quintal +
+        "\nPISCINA: " + piscina;
+    }
 }

@@ -10,7 +10,7 @@ public class CadastroPessoa {
     }
     
 
-    public static void cadastrarCliente(Pessoa pessoa){
+    public static void cadastrarPessoa(Pessoa pessoa){
         listaPessoas.add(pessoa);
     }
 

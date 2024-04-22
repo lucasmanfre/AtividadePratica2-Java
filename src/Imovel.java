@@ -12,15 +12,14 @@ public class Imovel {
     public Imovel(){
     }
 
-    public Imovel(String endereco, float preco, float m2, String tipoNegocio, String tipoImovel, int id) {
+    public Imovel(String endereco, float preco, float m2, String tipoNegocio) {
         Random idAleatorio = new Random();
         this.id = idAleatorio.nextInt(1000);
         this.endereco = endereco;
         this.preco = preco;
         this.m2 = m2;
         this.tipoNegocio = tipoNegocio;
-        this.tipoImovel = tipoImovel;
-        this.id = id;
+        this.tipoImovel = "TERRENO";
     }
 
     public String getEndereco() {
@@ -61,6 +60,13 @@ public class Imovel {
         this.id = id;
     }
     
-
+    @Override
+    public String toString() {
+        return "\nID: " + id +
+        "\n" + tipoImovel +
+        "\nENDEREÇO: " + endereco +
+        "\nm2: " + m2 +
+        "\n" + tipoNegocio;
+    }
     
 }

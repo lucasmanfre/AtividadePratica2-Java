@@ -12,9 +12,9 @@ public class ImovelConstruido extends Imovel {
     public ImovelConstruido(){
     }
 
-    public ImovelConstruido(String endereco, float preco, float m2, String tipoNegocio, String tipoImovel, int id, int quarto,
+    public ImovelConstruido(String endereco, float preco, float m2, String tipoNegocio, int quarto,
             int banheiro, int vaga, float condominio, int pisos, String padrao, String resiComer) {
-        super(endereco, preco, m2, tipoNegocio, tipoImovel, id);
+        super(endereco, preco, m2, tipoNegocio);
         this.quarto = quarto;
         this.banheiro = banheiro;
         this.vaga = vaga;
@@ -67,6 +67,15 @@ public class ImovelConstruido extends Imovel {
         this.resiComer = resiComer;
     }
 
-    
-
+    @Override
+    public String toString() {
+        return super.toString() + 
+        "\nQUARTO(S): " + quarto + 
+        "\nBANHEIRO(S): " + banheiro +
+        "\nVAGA(S): " + vaga +
+        "\nVALOR CONDOMÍNIO: " + condominio +
+        "\nANDARES: " + pisos +
+        padrao + "PADRÃO" +
+        "\nTIPO DO IMÓVEL: " + resiComer;
+    }
 }
