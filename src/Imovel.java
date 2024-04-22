@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Imovel {
     
     private String endereco;
@@ -5,6 +7,21 @@ public class Imovel {
     private float m2;
     private String tipoNegocio;
     private String tipoImovel;
+    private int id;
+
+    public Imovel(){
+    }
+
+    public Imovel(String endereco, float preco, float m2, String tipoNegocio, String tipoImovel, int id) {
+        Random idAleatorio = new Random();
+        this.id = idAleatorio.nextInt(1000);
+        this.endereco = endereco;
+        this.preco = preco;
+        this.m2 = m2;
+        this.tipoNegocio = tipoNegocio;
+        this.tipoImovel = tipoImovel;
+        this.id = id;
+    }
 
     public String getEndereco() {
         return endereco;
@@ -35,6 +52,13 @@ public class Imovel {
     }
     public void setTipoImovel(String tipoImovel) {
         this.tipoImovel = tipoImovel;
+    }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
     
 

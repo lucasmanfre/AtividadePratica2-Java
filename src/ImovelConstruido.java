@@ -8,6 +8,22 @@ public class ImovelConstruido extends Imovel {
     private String padrao;
     private String resiComer;
 
+    
+    public ImovelConstruido(){
+    }
+
+    public ImovelConstruido(String endereco, float preco, float m2, String tipoNegocio, String tipoImovel, int id, int quarto,
+            int banheiro, int vaga, float condominio, int pisos, String padrao, String resiComer) {
+        super(endereco, preco, m2, tipoNegocio, tipoImovel, id);
+        this.quarto = quarto;
+        this.banheiro = banheiro;
+        this.vaga = vaga;
+        this.condominio = condominio;
+        this.pisos = pisos;
+        this.padrao = padrao;
+        this.resiComer = resiComer;
+    }
+
     public int getQuarto() {
         return quarto;
     }

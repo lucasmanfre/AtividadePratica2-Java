@@ -3,16 +3,29 @@ import java.util.ArrayList;
 
 public class CadastroImovel {
     
-    private static List<Casa> listaImoveis = new ArrayList<>();
+    private static List<Imovel> listaImoveis = new ArrayList<>();
 
-    public static void cadastrar(Imovel imovel){
+    public static List<Imovel> getListaImoveis() {
+        return listaImoveis;
+    }
+
+    public static void cadastrarImovel(Imovel imovel){
         listaImoveis.add(imovel);
     }
 
-    public static void buscar(String tipo){
-        for (Imovel temp : listaImoveis) {
-            if (tipo == "C"){
-                listaImoveis
+    public static Imovel buscarImovel(int id){
+        for (Imovel temp : listaImoveis){
+            if (temp.getId() == id){
+                return temp;
+            }
+        }
+        return null;
+    }
+
+    public static void excluirImovel(int id){
+        for (Imovel temp : listaImoveis){
+            if (temp.getId() == id){
+                listaImoveis.remove(temp);
             }
         }
     }
