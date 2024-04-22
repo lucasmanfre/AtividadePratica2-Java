@@ -1,6 +1,8 @@
 public class Apartamento extends ImovelConstruido{
     
     private int andar;
+
+//Construtor
     
     public Apartamento(){
     }
@@ -14,12 +16,16 @@ public class Apartamento extends ImovelConstruido{
         this.andar = andar;
     }
 
+// Gets n Setters
+
     public int getAndar() {
         return andar;
     }
     public void setAndar(int andar) {
         this.andar = andar;
     }
+
+// toString
     
     @Override
     public String toString() {

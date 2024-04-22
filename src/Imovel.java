@@ -9,6 +9,8 @@ public class Imovel {
     private String tipoImovel;
     private int id;
 
+// Construtores
+
     public Imovel(){
     }
 
@@ -21,6 +23,8 @@ public class Imovel {
         this.tipoNegocio = tipoNegocio;
         this.tipoImovel = "TERRENO";
     }
+
+// Gets n Setters
 
     public String getEndereco() {
         return endereco;
@@ -60,13 +64,15 @@ public class Imovel {
         this.id = id;
     }
     
+// toString
+
     @Override
     public String toString() {
         return "\nID: " + id +
-        "\n" + tipoImovel +
+        "\nTipo de Propriedade: " + tipoImovel +
         "\nENDEREÇO: " + endereco +
-        "\nm2: " + m2 +
-        "\n" + tipoNegocio;
+        "\nÁrea: " + m2 + "/m2" + 
+        "\nEstá disponível para " + tipoNegocio;
     }
     
 }

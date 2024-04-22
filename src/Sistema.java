@@ -1,5 +1,7 @@
 public class Sistema {
     
+    //----------------------MENUS----------------------------------
+
     public static void menuInicial(){
         System.out.println("\n---- APOLAR ----");
         System.out.println("1 - USUARIO");
@@ -44,27 +46,41 @@ public class Sistema {
         System.out.println("------------------------------------");
     }
 
+    //-------------------------------------------------------------------
+
+
     public static void verificarOp(int op){
         int op2;
         int op3;
         int op4;
         int op5;
+        int op6;
+
+    // Seção escolha de entre usuario ou corretor (case 1 / case 2).
+
         switch (op) {
             case 1:
                 System.out.print("NOME: ");
-                String nome = Console.lerString();
+                String nomeCliente = Console.lerString();
                 System.out.print("TELEFONE: ");
-                String telefone = Console.lerString();
+                String telefoneCliente = Console.lerString();
                 System.out.print("CPF: ");
-                String cpf = Console.lerString();
+                String cpfCliente = Console.lerString();
                 System.out.print("EMAIL: ");
-                String email = Console.lerString();
-                Cliente cliente = new Cliente(nome, cpf, telefone, email);
+                String emailCliente = Console.lerString();
+                Cliente cliente = new Cliente(nomeCliente, cpfCliente, telefoneCliente, emailCliente);
                 CadastroPessoa.cadastrarPessoa(cliente);
                 System.out.println("\nCADASTRO REALIZADO COM SUCESSO!");
+
+            // Seção inicializando o menu do usuario.
+
                 menuUsuario();
+
                 op2 = Console.lerInt();
                 switch (op2) {
+
+                // Listagem de todos os imoveis, com validação de existencia na memoria.
+
                     case 1:
                         if (CadastroImovel.getListaImoveis().size() == 0){
                             System.out.println("\nNÃO HÁ IMOVEIS DISPONÍVEIS");
@@ -73,11 +89,16 @@ public class Sistema {
                         for (Imovel temp : CadastroImovel.getListaImoveis())
                             System.out.println(temp.toString());
                         break;
+
+                // Menu para busca com escolha em base no tipo de residencia (Casa, Apartamento ou apenas o Terreno).
                     
                     case 2:
                         menuBuscar();
                         op3 = Console.lerInt();
                         switch (op3) {
+
+                        // Validação de busca caso não haja imoveis registrados no sistema, junto com a relação de todas as Casas.
+                        
                             case 1:
                                 if (CadastroImovel.getListaImoveis().size() == 0){
                                     System.out.println("\nNÃO HÁ CASAS DISPONÍVEIS");
@@ -88,6 +109,8 @@ public class Sistema {
                                     System.out.println(temp.toString());
                                 break;
 
+                        // Validação de busca caso não haja imoveis registrados no sistema, junto com a relação de todos os Apartamentos.
+
                             case 2:
                                 if (CadastroImovel.getListaImoveis().size() == 0){
                                     System.out.println("\nNÃO HÁ APARTAMENTOS DISPONÍVEIS");
@@ -97,6 +120,9 @@ public class Sistema {
                                     if (temp.getTipoImovel().equals("APARTAMENTO"))
                                     System.out.println(temp.toString());
                                 break;
+
+                        // Validação de busca caso não haja imoveis registrados no sistema, junto com a relação de todos os Terrenos.
+
                             case 3:
                                 if (CadastroImovel.getListaImoveis().size() == 0){
                                     System.out.println("\nNÃO HÁ TERRENOS DISPONÍVEIS");
@@ -116,6 +142,9 @@ public class Sistema {
                                 break;
                         }
                         break;
+
+                // Busca pelo menu usuario, pesquisando pelo id da propriedade.
+
                     case 3:
                         System.out.print("INFORME O ID: ");
                         int id = Console.lerInt();
@@ -132,49 +161,62 @@ public class Sistema {
                         break;
                 }
                 break;
+
+        // Seção escolha de entre usuario ou corretor (case 1 / case 2).
+        
             case 2:
                 System.out.print("NOME: ");
-                String nome2 = Console.lerString();
+                String nomeCorretor = Console.lerString();
                 System.out.print("TELEFONE: ");
-                String cpf2 = Console.lerString();
+                String cpfCorretor = Console.lerString();
                 System.out.print("MATRÍCULA: ");
-                int matricula = Console.lerInt();
+                int matriculaCorretor = Console.lerInt();
                 System.out.print("UNIDADE: ");
-                String unidade = Console.lerString();
-                Corretor corretor = new Corretor(nome2, cpf2, matricula, unidade);
+                String unidadeCorretor = Console.lerString();
+                Corretor corretor = new Corretor(nomeCorretor, cpfCorretor, matriculaCorretor, unidadeCorretor);
                 CadastroPessoa.cadastrarPessoa(corretor);
                 System.out.println("\nCADASTRO REALIZADO COM SUCESSO!");
+
+            // Menu Corretor sendo inicalizado.
+
                 menuCorretor();
+
                 op4 = Console.lerInt();
                 switch (op4) {
+
+                // Menu corretor cadastro de um imovel, tendo opções de criar propriedades distintas (Casa, Apartamento ou apenas Terreno).
+                
                     case 1:
                         menuCadastrarImovel();
                         op5 = Console.lerInt();
                         switch (op5) {
+
+                        // Cadastro opção Casa.
+
                             case 1:
                                 System.out.println("\n---- CADASTRO CASA ----");
                                 System.out.print("ENDEREÇO: ");
-                                String endereco = Console.lerString();
+                                String enderecoCasa = Console.lerString();
                                 System.out.print("PREÇO: ");
-                                float preco = Console.lerFloat();
+                                float precoCasa = Console.lerFloat();
                                 System.out.print("M2: ");
-                                float m2 = Console.lerFloat();
+                                float m2Casa = Console.lerFloat();
                                 System.out.print("VENDA OU ALUGUEL?: ");
-                                String tipoNegocio = Console.lerString();
+                                String tipoNegocioCasa = Console.lerString();
                                 System.out.print("QUANTIDADE QUARTOS: ");
-                                int quarto = Console.lerInt();
+                                int quartoCasa = Console.lerInt();
                                 System.out.print("QUANTIDADE BANHEIROS: ");
-                                int banheiro = Console.lerInt();
+                                int banheiroCasa = Console.lerInt();
                                 System.out.print("QUANTIDADE DE VAGAS: ");
-                                int vagas = Console.lerInt();
+                                int vagasCasa = Console.lerInt();
                                 System.out.print("PREÇO CONDOMINIO: ");
-                                float condominio = Console.lerFloat();
+                                float condominioCasa = Console.lerFloat();
                                 System.out.print("QUANTIDADES DE ANDARES: ");
-                                int andares = Console.lerInt();
+                                int andaresCasa = Console.lerInt();
                                 System.out.print("ALTO, MÉDIO OU BAIXO PADRÃO?: ");
-                                String padrao = Console.lerString();
+                                String padraoCasa = Console.lerString();
                                 System.out.print("RESINDENCIAL OU COMERCIAL?: ");
-                                String resiComer = Console.lerString();
+                                String resiComerCasa = Console.lerString();
                                 String quintal;
                                 boolean quintalBool;
                                 do {
@@ -199,55 +241,59 @@ public class Sistema {
                                 else{
                                     piscinaBool = false;
                                 }
-                                Casa casa = new Casa(endereco, preco, m2, tipoNegocio, quarto, banheiro, vagas, condominio, andares, padrao, resiComer, quintalBool, piscinaBool);
+                                Casa casa = new Casa(enderecoCasa, precoCasa, m2Casa, tipoNegocioCasa, quartoCasa, banheiroCasa, vagasCasa, condominioCasa, andaresCasa, padraoCasa, resiComerCasa, quintalBool, piscinaBool);
                                 CadastroImovel.cadastrarImovel(casa);
                                 System.out.println("\nIMÓVEL CADASTRADO COM SUCESSO!");
                                 System.out.print("-----------------------");
                                 break;
                             
+                        // Cadastro opção Apartamento.
+
                             case 2:
                                 System.out.println("\n---- CADASTRO APARTAMENTO ----");
                                 System.out.print("ENDEREÇO: ");
-                                String endereco2 = Console.lerString();
+                                String enderecoApartamento = Console.lerString();
                                 System.out.print("PREÇO: ");
-                                float preco2 = Console.lerFloat();
+                                float precoApartamento = Console.lerFloat();
                                 System.out.print("M2: ");
-                                float m22 = Console.lerFloat();
+                                float m2Apartamento = Console.lerFloat();
                                 System.out.print("VENDA OU ALUGUEL?: ");
-                                String tipoNegocio2 = Console.lerString();
+                                String tipoNegocioApartamento = Console.lerString();
                                 System.out.print("QUANTIDADE QUARTOS: ");
-                                int quarto2 = Console.lerInt();
+                                int quartoApartamento = Console.lerInt();
                                 System.out.print("QUANTIDADE BANHEIROS: ");
-                                int banheiro2 = Console.lerInt();
+                                int banheiroApartamento = Console.lerInt();
                                 System.out.print("QUANTIDADE DE VAGAS: ");
-                                int vagas2 = Console.lerInt();
+                                int vagasApartamento = Console.lerInt();
                                 System.out.print("PREÇO CONDOMINIO: ");
-                                float condominio2 = Console.lerFloat();
+                                float condominioApartamento = Console.lerFloat();
                                 System.out.print("QUANTIDADES DE ANDARES: ");
-                                int andares2 = Console.lerInt();
+                                int andaresApartamento = Console.lerInt();
                                 System.out.print("ALTO, MÉDIO OU BAIXO PADRÃO?: ");
-                                String padrao2 = Console.lerString();
+                                String padraoApartamento = Console.lerString();
                                 System.out.print("RESINDENCIAL OU COMERCIAL?: ");
-                                String resiComer2 = Console.lerString();
+                                String resiComerApartamento = Console.lerString();
                                 System.out.print("ANDAR: ");
                                 int andar = Console.lerInt();
-                                Apartamento ap = new Apartamento(endereco2, preco2, m22, tipoNegocio2, quarto2, banheiro2, vagas2, condominio2, andares2, padrao2, resiComer2, andar);
+                                Apartamento ap = new Apartamento(enderecoApartamento, precoApartamento, m2Apartamento, tipoNegocioApartamento, quartoApartamento, banheiroApartamento, vagasApartamento, condominioApartamento, andaresApartamento, padraoApartamento, resiComerApartamento, andar);
                                 CadastroImovel.cadastrarImovel(ap);
                                 System.out.println("\nIMÓVEL CADASTRADO COM SUCESSO!");
                                 System.out.print("-----------------------");
                                 break;
 
+                        // Cadastro opção Terreno.
+
                             case 3:
                                 System.out.println("\n---- CADASTRO TERRENO ----");
                                 System.out.print("ENDEREÇO: ");
-                                String endereco3 = Console.lerString();
+                                String enderecoTerreno = Console.lerString();
                                 System.out.print("PREÇO: ");
-                                float preco3 = Console.lerFloat();
+                                float precoTerreno = Console.lerFloat();
                                 System.out.print("M2: ");
-                                float m23 = Console.lerFloat();
+                                float m2Terreno = Console.lerFloat();
                                 System.out.print("VENDA OU ALUGUEL?: ");
-                                String tipoNegocio3 = Console.lerString();
-                                Imovel imovel = new Imovel(endereco3, preco3, m23, tipoNegocio3);
+                                String tipoNegocioTerreno = Console.lerString();
+                                Imovel imovel = new Imovel(enderecoTerreno, precoTerreno, m2Terreno, tipoNegocioTerreno);
                                 CadastroImovel.cadastrarImovel(imovel);
                                 System.out.println("\nIMÓVEL CADASTRADO COM SUCESSO!");
                                 System.out.print("-----------------------");
@@ -263,13 +309,78 @@ public class Sistema {
                         }
                         break;
                     
+                // Opção para poder alterar valores de atributos de algum imovel.
+
                     case 2:
+
+                        
+
                         break;
+
+                // Busca de todos os imóveis disponíveis, registrados no sistema.
 
                     case 3:
-                        break;
+
+                        if (CadastroImovel.getListaImoveis().size() == 0){
+                            System.out.println("\nNÃO HÁ IMOVEIS DISPONÍVEIS");
+                            return;
+                        }
+                        for (Imovel temp : CadastroImovel.getListaImoveis())
+                            System.out.println(temp.toString());
+                        break;    
+
+                // Busca de imoveis especificos por seu tipo (Casa, Apartamento ou apenas o Terreno).
 
                     case 4:
+
+                        menuBuscar();
+                        op6 = Console.lerInt();
+                        switch (op6) {
+
+                        // Validação de busca caso não haja imoveis registrados no sistema, junto com a relação de todas as Casas.
+                        
+                            case 1:
+                                if (CadastroImovel.getListaImoveis().size() == 0){
+                                    System.out.println("\nNÃO HÁ CASAS DISPONÍVEIS");
+                                    return;
+                                }
+                                for (Imovel temp : CadastroImovel.getListaImoveis())
+                                    if (temp.getTipoImovel().equals("CASA"))
+                                    System.out.println(temp.toString());
+                                break;
+
+                        // Validação de busca caso não haja imoveis registrados no sistema, junto com a relação de todos os Apartamentos.
+
+                            case 2:
+                                if (CadastroImovel.getListaImoveis().size() == 0){
+                                    System.out.println("\nNÃO HÁ APARTAMENTOS DISPONÍVEIS");
+                                    return;
+                                }
+                                for (Imovel temp : CadastroImovel.getListaImoveis())
+                                    if (temp.getTipoImovel().equals("APARTAMENTO"))
+                                    System.out.println(temp.toString());
+                                break;
+
+                        // Validação de busca caso não haja imoveis registrados no sistema, junto com a relação de todos os Terrenos.
+
+                            case 3:
+                                if (CadastroImovel.getListaImoveis().size() == 0){
+                                    System.out.println("\nNÃO HÁ TERRENOS DISPONÍVEIS");
+                                    return;
+                                }
+                                for (Imovel temp : CadastroImovel.getListaImoveis())
+                                    if (temp.getTipoImovel().equals("TERRENO"))
+                                    System.out.println(temp.toString());
+                                break;
+
+                            case 0:
+                                System.out.println("Saindo do sistema...");
+                                break;
+                        
+                            default:
+                                System.out.println("Opção inválida! Tente novamente...");
+                                break;
+                        }
                         break;
 
                     case 0:
@@ -291,6 +402,8 @@ public class Sistema {
                 break;
         }
     }
+
+// Método de execução do sistema
 
     public static void executar(){
         int op;

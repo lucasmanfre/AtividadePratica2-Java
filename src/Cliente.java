@@ -2,14 +2,20 @@ public class Cliente extends Pessoa{
     
     private String telefone;
     private String email;
+
+// Construtores
     
     public Cliente() {
     }
+    
     public Cliente(String nome, String cpf, String telefone, String email) {
         super(nome, cpf);
         this.telefone = telefone;
         this.email = email;
     }
+
+// Gets n Setters
+
     public String getTelefone() {
         return telefone;
     }

@@ -3,6 +3,8 @@ public class Pessoa {
     private String nome;
     private String cpf;
 
+// Construtores
+
     public Pessoa(){
     }
     
@@ -10,6 +12,9 @@ public class Pessoa {
         this.nome = nome;
         this.cpf = cpf;
     }
+
+// Gets n Setters
+
     public String getNome() {
         return nome;
     }

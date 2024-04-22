@@ -3,6 +3,8 @@ public class Casa extends ImovelConstruido{
     private boolean quintal;
     private boolean piscina;
 
+// Construtores
+
     public Casa(){
     }
     
@@ -16,6 +18,8 @@ public class Casa extends ImovelConstruido{
         this.piscina = piscina;
     }
 
+// Gets n Setters
+
     public boolean isQuintal() {
         return quintal;
     }
@@ -28,6 +32,8 @@ public class Casa extends ImovelConstruido{
     public void setPiscina(boolean piscina) {
         this.piscina = piscina;
     }
+
+// toString
     
     @Override
     public String toString() {

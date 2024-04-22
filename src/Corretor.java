@@ -3,6 +3,8 @@ public class Corretor extends Pessoa{
     private int matricula;
     private String unidade;
     
+// Construtores
+
     public Corretor() {
     }
     public Corretor(String nome, String cpf, int matricula, String unidade) {
@@ -10,6 +12,9 @@ public class Corretor extends Pessoa{
         this.matricula = matricula;
         this.unidade = unidade;
     }
+
+// Gets n Setters
+
     public int getMatricula() {
         return matricula;
     }

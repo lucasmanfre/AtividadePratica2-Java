@@ -8,6 +8,7 @@ public class ImovelConstruido extends Imovel {
     private String padrao;
     private String resiComer;
 
+// Construtores
     
     public ImovelConstruido(){
     }
@@ -23,6 +24,8 @@ public class ImovelConstruido extends Imovel {
         this.padrao = padrao;
         this.resiComer = resiComer;
     }
+
+// Gets n Setters
 
     public int getQuarto() {
         return quarto;
@@ -67,6 +70,8 @@ public class ImovelConstruido extends Imovel {
         this.resiComer = resiComer;
     }
 
+// toString
+
     @Override
     public String toString() {
         return super.toString() + 
@@ -75,7 +80,7 @@ public class ImovelConstruido extends Imovel {
         "\nVAGA(S): " + vaga +
         "\nVALOR CONDOMÍNIO: " + condominio +
         "\nANDARES: " + pisos +
-        padrao + "PADRÃO" +
+        "\n" +  padrao + "PADRÃO" +
         "\nTIPO DO IMÓVEL: " + resiComer;
     }
 }
