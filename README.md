@@ -21,4 +21,4 @@ Alterações:
 
 
 
-OBS: Trabalho realizado por Lucas Maciel Manfré e Guilherme Coelho Mendes. Se houver qualquer commit destes usuários é devido a continua aprendizagem de fazer commit com os computadores de laboratorio da universidade terem problemas com a autenticação de usuário(ainda aprendendo git).
+OBS: Trabalho realizado por Lucas Maciel Manfré e Guilherme Coelho Mendes. Se houver qualquer commit além destes usuários é devido a continua aprendizagem de fazer commit com os computadores de laboratorio da universidade terem problemas com a autenticação de usuário(ainda aprendendo git).
