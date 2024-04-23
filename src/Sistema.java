@@ -332,11 +332,14 @@ public class Sistema {
                 // Opção para poder alterar valores de atributos de algum imovel.
 
                     case 2:
-                         System.out.print("ID DO IMÓVEL: ");
-                         int id = Console.lerInt();
-                         Imovel imovel = CadastroImovel.buscarImovel(id);
-                         menuAlteracao();
-                         op7 = Console.lerInt();
+                    System.out.print("ID DO IMÓVEL: ");
+                    int id = Console.lerInt();
+                    Imovel imovel = CadastroImovel.buscarImovel(id);
+                    Casa i = (Casa)imovel; // força passar os valores de uma variavel Imovel para uma variavel Casa
+                    if (imovel instanceof ImovelConstruido){
+                    }//verifica se o imovel faz é um Imovel construido
+                    menuAlteracao();
+                    op7 = Console.lerInt();
                          switch (op7) {
                             case 1:
                                 String enderecoAlterar = Console.lerString();
@@ -394,7 +397,7 @@ public class Sistema {
 
                             case 10:
                                 String padraoAlterar = Console.lerString();
-                                //imovel.setPadrao(padraoAlterar);
+                                i.setPadrao(padraoAlterar);
                                 System.out.println("ALTERAÇÃO REALIZADA COM SUCESSO!");
                                 break;
 

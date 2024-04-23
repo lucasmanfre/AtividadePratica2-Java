@@ -9,6 +9,17 @@ public class CadastroImovel {
         return listaImoveis;
     }
 
+    public static List<ImovelConstruido> getListaImoveisConstruidos() {
+        List <ImovelConstruido> lista = new ArrayList<>();
+        for (Imovel i : listaImoveis){
+            if(i instanceof ImovelConstruido){
+                lista.add((ImovelConstruido) i);
+            }
+        }
+        return lista;
+    }
+
+
     public static void cadastrarImovel(Imovel imovel){
         listaImoveis.add(imovel);
     }
