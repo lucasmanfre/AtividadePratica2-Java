@@ -4,6 +4,7 @@ Alterações:
 1 - tirar o cadastro toda vez que seleciona usuario ou corretor;
 
 2 - fazer o "modificar imovel";
+2.1 - consertar "modificar imovel";
 
                                                                         3 - fazer o case 3 e 4 do menu corretor;                             
 
@@ -15,9 +16,10 @@ Alterações:
 
                                                                         7 - comentar o codigo;
 
-                                                                        8 - revisao/formataçao de saida de endereço de dados e variaveis;
+8 - revisao/formataçao de saida de endereço de dados e variaveis;
 
 9 - Criar método para exclusão de todas as bases;
+10 - Testar e corrigir erros;
 
 
 
