@@ -46,7 +46,35 @@ public class Sistema {
         System.out.println("------------------------------------");
     }
 
-    public static void menuAlteracao(){
+    public static void menuAlteracaoTerreno(){
+        System.out.println("\n---- ALTERAR INFORMAÇÕES ----");
+        System.out.println("1 - ENDEREÇO");
+        System.out.println("2 - PREÇO");
+        System.out.println("3 - M2");
+        System.out.println("4 - VENDA/ALUGUEL");
+        System.out.println("0 - SAIR");
+        System.out.println("-----------------------------");
+    }
+
+    public static void menuAlteracaoAp(){
+        System.out.println("\n---- ALTERAR INFORMAÇÕES ----");
+        System.out.println("1 - ENDEREÇO");
+        System.out.println("2 - PREÇO");
+        System.out.println("3 - M2");
+        System.out.println("4 - VENDA/ALUGUEL");
+        System.out.println("5 - QUARTOS");
+        System.out.println("6 - BANHEIROS");
+        System.out.println("7 - VAGAS");
+        System.out.println("8 - PREÇO CONDOMINIO");
+        System.out.println("9 - QUANTIDADES DE ANDARES");
+        System.out.println("10 - ALTO/MÉDIO/BAIXO PADRÃO");
+        System.out.println("11 - RESINDENCIAL/COMERCIAL");
+        System.out.println("12 - ANDAR");
+        System.out.println("0 - SAIR");
+        System.out.println("-----------------------------");
+    }
+
+    public static void menuAlteracaoCasa(){
         System.out.println("\n---- ALTERAR INFORMAÇÕES ----");
         System.out.println("1 - ENDEREÇO");
         System.out.println("2 - PREÇO");
@@ -61,7 +89,7 @@ public class Sistema {
         System.out.println("11 - RESINDENCIAL/COMERCIAL");
         System.out.println("12 - QUINTAL");
         System.out.println("13 - PISCINA");
-        System.out.println("14 - ANDAR");
+        System.out.println("0 - SAIR");
         System.out.println("-----------------------------");
     }
 
@@ -332,15 +360,20 @@ public class Sistema {
                 // Opção para poder alterar valores de atributos de algum imovel.
 
                     case 2:
-                    System.out.print("ID DO IMÓVEL: ");
-                    int id = Console.lerInt();
-                    Imovel imovel = CadastroImovel.buscarImovel(id);
-                    Casa i = (Casa)imovel; // força passar os valores de uma variavel Imovel para uma variavel Casa
-                    if (imovel instanceof ImovelConstruido){
-                    }//verifica se o imovel faz é um Imovel construido
-                    menuAlteracao();
-                    op7 = Console.lerInt();
-                         switch (op7) {
+                    Imovel imovel;
+                    do {
+                        System.out.print("ID DO IMÓVEL: ");
+                        int id = Console.lerInt();
+                        imovel = CadastroImovel.buscarImovel(id);
+                        if (imovel == null){
+                            System.out.println("ID INCORRETO, TENTE NOVAMENTE..");
+                        }
+                    } while (imovel == null);
+                    String tipoAlterar = imovel.getTipoImovel();
+                    if (tipoAlterar.equals("TERRENO")){
+                        menuAlteracaoTerreno();
+                        op7 = Console.lerInt();
+                        switch (op7) {
                             case 1:
                                 String enderecoAlterar = Console.lerString();
                                 imovel.setEndereco(enderecoAlterar);
@@ -365,45 +398,169 @@ public class Sistema {
                                 System.out.println("ALTERAÇÃO REALIZADA COM SUCESSO!");
                                 break;
 
+                            case 0:
+                                System.out.println("Saindo do sistema...");
+                                break;
+
+                            default:
+                                System.out.println("Opção inválida! Tente novamente...");
+                                break;
+                        }
+                    }
+                    else if (tipoAlterar.equals("APARTAMENTO")){
+                        Apartamento ap = (Apartamento)imovel;// força passar os valores de uma variavel Imovel para uma variavel ap
+                        menuAlteracaoAp();
+                        op7 = Console.lerInt();
+                        switch (op7) {
+                            case 1:
+                                String enderecoAlterar = Console.lerString();
+                                ap.setEndereco(enderecoAlterar);
+                                System.out.println("ALTERAÇÃO REALIZADA COM SUCESSO!");
+                                break;
+
+                            case 2:
+                                float precoAlterar = Console.lerFloat();
+                                ap.setPreco(precoAlterar);
+                                System.out.println("ALTERAÇÃO REALIZADA COM SUCESSO!");
+                                break;
+
+                            case 3:
+                                int m2Alterar = Console.lerInt();
+                                ap.setM2(m2Alterar);
+                                System.out.println("ALTERAÇÃO REALIZADA COM SUCESSO!");
+                                break;
+
+                            case 4:
+                                String tipoNegocioAlterar = Console.lerString();
+                                ap.setTipoImovel(tipoNegocioAlterar);
+                                System.out.println("ALTERAÇÃO REALIZADA COM SUCESSO!");
+                                break;
+
                             case 5:
                                 int quartoAlterar = Console.lerInt();
-                                //imovel.setQuarto(quartoAlterar);
+                                ap.setQuarto(quartoAlterar);
                                 System.out.println("ALTERAÇÃO REALIZADA COM SUCESSO!");
                                 break;
 
                             case 6:
                                 int banheiroAlterar = Console.lerInt();
-                                //imovel.setBanheiro(banheiroAlterar);
+                                ap.setBanheiro(banheiroAlterar);
                                 System.out.println("ALTERAÇÃO REALIZADA COM SUCESSO!");
                                 break;
 
                             case 7:
                                 int vagaAlterar = Console.lerInt();
-                                //imovel.setVaga(vagaAlterar);
+                                ap.setVaga(vagaAlterar);
                                 System.out.println("ALTERAÇÃO REALIZADA COM SUCESSO!");
                                 break;
 
                             case 8:
                                 float condominioAlterar = Console.lerFloat();
-                                //imovel.setCondominio(condominioAlterar);
+                                ap.setCondominio(condominioAlterar);
                                 System.out.println("ALTERAÇÃO REALIZADA COM SUCESSO!");
                                 break;
 
                             case 9:
                                 int pisosAlterar = Console.lerInt();
-                                //imovel.setPisos(pisosAlterar);
+                                ap.setPisos(pisosAlterar);
                                 System.out.println("ALTERAÇÃO REALIZADA COM SUCESSO!");
                                 break;
 
                             case 10:
                                 String padraoAlterar = Console.lerString();
-                                i.setPadrao(padraoAlterar);
+                                ap.setPadrao(padraoAlterar);
                                 System.out.println("ALTERAÇÃO REALIZADA COM SUCESSO!");
                                 break;
 
                             case 11:
                                 String resiComerAlterar = Console.lerString();
-                                //imovel.setResiComer(resiComerAlterar);
+                                ap.setResiComer(resiComerAlterar);
+                                System.out.println("ALTERAÇÃO REALIZADA COM SUCESSO!");
+                                break;
+
+                            case 12:
+                                int andarAlterar = Console.lerInt();
+                                ap.setAndar(andarAlterar);
+                                System.out.println("ALTERAÇÃO REALIZADA COM SUCESSO!");
+                                break;
+
+                            case 0:
+                                System.out.println("Saindo do sistema...");
+                                break;
+                         
+                            default:
+                                System.out.println("Opção inválida! Tente novamente...");
+                                break;
+                         }  
+                    }
+                    else{
+                        Casa casa = (Casa)imovel;// força passar os valores de uma variavel Imovel para uma variavel Casa
+                        menuAlteracaoCasa();
+                        op7 = Console.lerInt();
+                        switch (op7) {
+                            case 1:
+                                String enderecoAlterar = Console.lerString();
+                                casa.setEndereco(enderecoAlterar);
+                                System.out.println("ALTERAÇÃO REALIZADA COM SUCESSO!");
+                                break;
+
+                            case 2:
+                                float precoAlterar = Console.lerFloat();
+                                casa.setPreco(precoAlterar);
+                                System.out.println("ALTERAÇÃO REALIZADA COM SUCESSO!");
+                                break;
+
+                            case 3:
+                                int m2Alterar = Console.lerInt();
+                                casa.setM2(m2Alterar);
+                                System.out.println("ALTERAÇÃO REALIZADA COM SUCESSO!");
+                                break;
+
+                            case 4:
+                                String tipoNegocioAlterar = Console.lerString();
+                                casa.setTipoImovel(tipoNegocioAlterar);
+                                System.out.println("ALTERAÇÃO REALIZADA COM SUCESSO!");
+                                break;
+
+                            case 5:
+                                int quartoAlterar = Console.lerInt();
+                                casa.setQuarto(quartoAlterar);
+                                System.out.println("ALTERAÇÃO REALIZADA COM SUCESSO!");
+                                break;
+
+                            case 6:
+                                int banheiroAlterar = Console.lerInt();
+                                casa.setBanheiro(banheiroAlterar);
+                                System.out.println("ALTERAÇÃO REALIZADA COM SUCESSO!");
+                                break;
+
+                            case 7:
+                                int vagaAlterar = Console.lerInt();
+                                casa.setVaga(vagaAlterar);
+                                System.out.println("ALTERAÇÃO REALIZADA COM SUCESSO!");
+                                break;
+
+                            case 8:
+                                float condominioAlterar = Console.lerFloat();
+                                casa.setCondominio(condominioAlterar);
+                                System.out.println("ALTERAÇÃO REALIZADA COM SUCESSO!");
+                                break;
+
+                            case 9:
+                                int pisosAlterar = Console.lerInt();
+                                casa.setPisos(pisosAlterar);
+                                System.out.println("ALTERAÇÃO REALIZADA COM SUCESSO!");
+                                break;
+
+                            case 10:
+                                String padraoAlterar = Console.lerString();
+                                casa.setPadrao(padraoAlterar);
+                                System.out.println("ALTERAÇÃO REALIZADA COM SUCESSO!");
+                                break;
+
+                            case 11:
+                                String resiComerAlterar = Console.lerString();
+                                casa.setResiComer(resiComerAlterar);
                                 System.out.println("ALTERAÇÃO REALIZADA COM SUCESSO!");
                                 break;
 
@@ -420,8 +577,8 @@ public class Sistema {
                                 else{
                                     quintalBoolAlterar = false;
                                 }
-                               //imovel.setQuintal(quintalBoolAlterar);
-                               System.out.println("ALTERAÇÃO REALIZADA COM SUCESSO!");
+                                casa.setQuintal(quintalBoolAlterar);
+                                System.out.println("ALTERAÇÃO REALIZADA COM SUCESSO!");
                                 break;
 
                             case 13:
@@ -437,21 +594,19 @@ public class Sistema {
                                 else{
                                     piscinaBoolAlterar = false;
                                 }
-                                //imovel.setPiscina(piscinaBoolAlterar);
+                                casa.setPiscina(piscinaBoolAlterar);
                                 System.out.println("ALTERAÇÃO REALIZADA COM SUCESSO!");
                                 break;
-
-                            case 14:
-                                int andarAlterar = Console.lerInt();
-                                //imovel.setAndar(andarAlterar);
-                                System.out.println("ALTERAÇÃO REALIZADA COM SUCESSO!");
+                            
+                            case 0:
+                                System.out.println("Saindo do sistema...");
                                 break;
                          
                             default:
                                 System.out.println("Opção inválida! Tente novamente...");
                                 break;
-                         }       
-                        
+                         }
+                    }          
                         break;
 
                 // Busca de todos os imóveis disponíveis, registrados no sistema.
