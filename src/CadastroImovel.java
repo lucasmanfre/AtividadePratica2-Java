@@ -33,12 +33,13 @@ public class CadastroImovel {
         return null;
     }
 
-    public static void excluirImovel(int id){
-        for (Imovel temp : listaImoveis){
-            if (temp.getId() == id){
-                listaImoveis.remove(temp);
-            }
-        }
+    public static void excluirImovel(Imovel imovel){
+        listaImoveis.remove(imovel);
     }
+
+    public static void excluirTodosImoveis() {
+        listaImoveis.clear();
+    }
+    
 
 }
