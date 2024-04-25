@@ -8,10 +8,11 @@ public class Sistema {
         System.out.println("2 - CORRETOR");
         System.out.println("0 - SAIR");
         System.out.println("----------------");
+        System.out.print("INFORME A OPÇÃO: ");
     }
 
     public static void menuCadastro(){
-        System.out.println("---- JÁ POSSUI CADASTRO? ----");
+        System.out.println("\n---- JÁ POSSUI CADASTRO? ----");
         System.out.println("1 - SIM");
         System.out.println("2 - NÃO");
         System.out.println("-----------------------------");
@@ -326,6 +327,7 @@ public class Sistema {
         switch (op) {
             case 1:
                 menuCadastro();
+                System.out.print("INFORME A OPÇÃO: ");
                 op8 = Console.lerInt();
                 switch (op8) {
                     case 1:
@@ -348,12 +350,12 @@ public class Sistema {
             // Seção inicializando o menu do usuario.
 
                 menuUsuario();
-
+                System.out.print("INFORME A OPÇÃO: ");
                 op2 = Console.lerInt();
                 switch (op2) {
 
                 // Listagem de todos os imoveis, com validação de existencia na memoria.
-
+                
                     case 1:
                         if (CadastroImovel.getListaImoveis().size() == 0){
                             System.out.println("\nNÃO HÁ IMOVEIS DISPONÍVEIS");
@@ -367,6 +369,7 @@ public class Sistema {
                     
                     case 2:
                         menuBuscar();
+                        System.out.print("INFORME A OPÇÃO: ");
                         op3 = Console.lerInt();
                         switch (op3) {
 
@@ -438,6 +441,7 @@ public class Sistema {
         
             case 2:
                 menuCadastro();
+                System.out.print("INFORME A OPÇÃO: ");
                 op8 = Console.lerInt();
                 switch (op8) {
                     case 1:
@@ -459,7 +463,7 @@ public class Sistema {
             // Menu Corretor sendo inicalizado.
 
                 menuCorretor();
-
+                System.out.print("INFORME A OPÇÃO: ");
                 op4 = Console.lerInt();
                 switch (op4) {
 
@@ -467,6 +471,7 @@ public class Sistema {
                 
                     case 1:
                         menuCadastrarImovel();
+                        System.out.print("INFORME A OPÇÃO: ");
                         op5 = Console.lerInt();
                         switch (op5) {
 
@@ -506,6 +511,7 @@ public class Sistema {
                     String tipoAlterar = imovel.getTipoImovel();
                     if (tipoAlterar.equals("TERRENO")){
                         menuAlteracaoTerreno();
+                        System.out.print("INFORME A OPÇÃO: ");
                         op7 = Console.lerInt();
                         switch (op7) {
                             case 1:
@@ -544,6 +550,7 @@ public class Sistema {
                     else if (tipoAlterar.equals("APARTAMENTO")){
                         Apartamento ap = (Apartamento)imovel;// força passar os valores de uma variavel Imovel para uma variavel ap
                         menuAlteracaoAp();
+                        System.out.print("INFORME A OPÇÃO: ");
                         op7 = Console.lerInt();
                         switch (op7) {
                             case 1:
@@ -630,6 +637,7 @@ public class Sistema {
                     else{
                         Casa casa = (Casa)imovel;// força passar os valores de uma variavel Imovel para uma variavel Casa
                         menuAlteracaoCasa();
+                        System.out.print("INFORME A OPÇÃO: ");
                         op7 = Console.lerInt();
                         switch (op7) {
                             case 1:
@@ -762,6 +770,7 @@ public class Sistema {
                     case 4:
 
                         menuBuscar();
+                        System.out.print("INFORME A OPÇÃO: ");
                         op6 = Console.lerInt();
                         switch (op6) {
 
@@ -814,6 +823,7 @@ public class Sistema {
                     case 5:
                         menuExcluir();
                         op9 = Console.lerInt();
+                        System.out.print("INFORME A OPÇÃO: ");
                         Imovel imovelExcluir;
                         switch (op9) {
                             case 1:
@@ -875,6 +885,7 @@ public class Sistema {
 // Método de execução do sistema
 
     public static void executar(){
+        BancoDeDados.bd();
         int op;
         do {
             menuInicial();

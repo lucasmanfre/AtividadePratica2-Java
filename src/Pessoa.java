@@ -30,7 +30,7 @@ public class Pessoa {
     
     @Override
     public String toString() {
-        return "Nome: " + getNome() +
+        return "\nNome: " + getNome() +
         "\nCpf: " + getCpf();
     }
 

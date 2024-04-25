@@ -1,28 +1,23 @@
-Alterações:
+Sistema de Gestão Imobiliária
 
 
-                                                                        1 - tirar o cadastro toda vez que seleciona usuario ou corretor;
+Descrição:
 
-                                                                        2 - fazer o "modificar imovel";
-                                                                        2.1 - consertar "modificar imovel";
-
-                                                                        3 - fazer o case 3 e 4 do menu corretor;                             
-
-                                                                        4 - Criar um menu de boas vindas;
-
-                                                                        5 - criar validação de usario e corretor existente;
-
-6 - criar um metodo com os construtores de imoveis (banco de dados);
-
-                                                                        7 - comentar o codigo;
-
-8 - revisao/formataçao de saida de endereço de dados e variaveis;
-
-                                                                        9 - Criar método para exclusão de todas as bases;
-
-10 - Testar e corrigir erros;
-
-11 - consertar default, que quando insere um valor diferente ele passar para o proximo menu;
+O Sistema de Gestão Imobiliária é um programa desenvolvido em Java para uma atividade avaliativa. Ele oferece duas interfaces: uma para usuários e outra para corretores. Os usuários podem se cadastrar no sistema e realizar buscas por casas, apartamentos e terrenos disponíveis, além de buscar imóveis específicos por ID. Por outro lado, os corretores precisam se cadastrar para adicionar, modificar ou excluir imóveis do sistema.
 
 
-OBS: Trabalho realizado por Lucas Maciel Manfré e Guilherme Coelho Mendes. Se houver qualquer commit além destes usuários é devido a continua aprendizagem de fazer commit com os computadores de laboratorio da universidade terem problemas com a autenticação de usuário(ainda aprendendo git).
+
+Funcionalidades
+
+Para Usuários:
+1. Cadastro: Os usuários podem se cadastrar no sistema fornecendo informações básicas.
+2. Busca por Tipo de Imóvel: Os usuários podem pesquisar imóveis disponíveis por tipo (casas, apartamentos, terrenos).
+3. Busca por ID: Os usuários podem buscar imóveis específicos através de seu ID único.
+
+
+Para Corretores:
+1. Cadastro: Os corretores devem se cadastrar no sistema para ter acesso às funcionalidades de gerenciamento de imóveis.
+2. Adição de Imóveis: Os corretores podem adicionar novos imóveis ao sistema, fornecendo informações detalhadas sobre eles.
+3. Modificação de Imóveis: Os corretores têm a capacidade de modificar informações de imóveis existentes, como preço, localização, etc.
+4. Exclusão de Imóveis: Os corretores podem excluir imóveis do sistema que não estão mais disponíveis.
+5. Além de também possuir as funcionalidades do usuário.

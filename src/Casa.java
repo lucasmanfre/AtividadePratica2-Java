@@ -39,6 +39,7 @@ public class Casa extends ImovelConstruido{
     public String toString() {
         return super.toString() + 
         "\nQUINTAL: " + quintal +
-        "\nPISCINA: " + piscina;
+        "\nPISCINA: " + piscina + 
+        "\n----------------------------------";
     }
 }

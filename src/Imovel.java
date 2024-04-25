@@ -68,7 +68,8 @@ public class Imovel {
 
     @Override
     public String toString() {
-        return "\nID: " + id +
+        return "----------------------------------\n" +
+        "ID: " + id +
         "\nTipo de Propriedade: " + tipoImovel +
         "\nENDEREÇO: " + endereco +
         "\nÁrea: " + m2 + "/m2" + 

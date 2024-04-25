@@ -30,7 +30,8 @@ public class Apartamento extends ImovelConstruido{
     @Override
     public String toString() {
         return super.toString() + 
-        "\nANDAR: " + andar;
+        "\nANDAR: " + andar + 
+        "\n----------------------------------";
     }
 
 }
