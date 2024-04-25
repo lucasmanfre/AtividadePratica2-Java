@@ -29,6 +29,11 @@ public class Cliente extends Pessoa{
         this.email = email;
     }
 
-    
+    @Override
+    public String toString() {
+        return super.toString() + 
+        "\nTelefone: " + getTelefone() + 
+        "\nEmail: " + getEmail();
+    }
 
 }

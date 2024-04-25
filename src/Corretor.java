@@ -28,5 +28,11 @@ public class Corretor extends Pessoa{
         this.unidade = unidade;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + 
+        "\nMatricula: " + getMatricula() +
+        "\nUnidade: " + getUnidade();
+    }
     
 }

@@ -8,9 +8,9 @@ Alterações:
 
                                                                         3 - fazer o case 3 e 4 do menu corretor;                             
 
-4 - Criar um menu de boas vindas;
+                                                                        4 - Criar um menu de boas vindas;
 
-5 - criar validação de usario e corretor existente;
+                                                                        5 - criar validação de usario e corretor existente;
 
 6 - criar um metodo com os construtores de imoveis (banco de dados);
 
@@ -18,10 +18,11 @@ Alterações:
 
 8 - revisao/formataçao de saida de endereço de dados e variaveis;
 
-9 - Criar método para exclusão de todas as bases;
+                                                                        9 - Criar método para exclusão de todas as bases;
 
 10 - Testar e corrigir erros;
 
+11 - consertar default, que quando insere um valor diferente ele passar para o proximo menu;
 
 
 OBS: Trabalho realizado por Lucas Maciel Manfré e Guilherme Coelho Mendes. Se houver qualquer commit além destes usuários é devido a continua aprendizagem de fazer commit com os computadores de laboratorio da universidade terem problemas com a autenticação de usuário(ainda aprendendo git).

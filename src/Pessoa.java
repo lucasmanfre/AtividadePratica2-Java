@@ -28,6 +28,11 @@ public class Pessoa {
         this.cpf = cpf;
     }
     
+    @Override
+    public String toString() {
+        return "Nome: " + getNome() +
+        "\nCpf: " + getCpf();
+    }
 
     
 }

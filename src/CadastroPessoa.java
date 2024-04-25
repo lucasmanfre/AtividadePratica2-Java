@@ -23,11 +23,13 @@ public class CadastroPessoa {
         return null;
     }
 
-    public static void excluirCliente(String cpf){
+    public static Pessoa buscarCorretor(int matricula){
         for(Pessoa temp : listaPessoas){
-            if (temp.getCpf().equals(cpf)){
-                listaPessoas.remove(temp);
+            Corretor c = (Corretor)temp;
+            if (c.getMatricula() == matricula){
+                return c;
             }
         }
+        return null;
     }
 }

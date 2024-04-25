@@ -17,13 +17,61 @@ public class Sistema {
         System.out.println("-----------------------------");
     }
 
+    public static int menuBemVindoCliente(){
+        Pessoa pessoa;
+        String cpf;
+        do {
+            System.out.print("INFORME O CPF DO CADASTRO: ");
+            cpf = Console.lerString();
+            pessoa = CadastroPessoa.buscarCliente(cpf);
+            if(cpf.equals("0")){
+                return 1;
+            } 
+            else if (pessoa == null){
+                System.out.println("CPF INCORRETO OU INEXISTENTE, TENTE NOVAMENTE OU DIGITE 0 PARA SAIR");
+            }      
+        } while (pessoa == null);
+        Cliente cliente = (Cliente)pessoa;
+        System.out.println("\n---- BEM VINDO(A) ----");
+        System.out.println(cliente.toString());
+        System.out.println("-----------------------");
+        return 0;
+    }
+
+    public static int menuBemVindoCorretor(){
+            Pessoa pessoa;
+            int matricula;
+            do {
+                System.out.print("INFORME A MATRICULA DO CADASTRO: ");
+                matricula = Console.lerInt();
+                pessoa = CadastroPessoa.buscarCorretor(matricula); 
+                if (matricula == 0){
+                    return 1;
+                }
+                else if (pessoa == null){
+                    System.out.println("MATRICULA INCORRETA OU INEXISTENTE, TENTE NOVAMENTE OU DIGITE 0 PARA SAIR");
+                }      
+            } while (pessoa == null);
+            Corretor corretor = (Corretor)pessoa;
+            System.out.println("\n---- BEM VINDO(A) ----");
+            System.out.println(corretor.toString());
+            System.out.println("-----------------------");
+            return 0;
+    }
+
     public static void cadastroUsuario(){
         System.out.print("NOME: ");
         String nomeCliente = Console.lerString();
         System.out.print("TELEFONE: ");
         String telefoneCliente = Console.lerString();
-        System.out.print("CPF: ");
-        String cpfCliente = Console.lerString();
+        String cpfCliente;
+        do {
+            System.out.print("CPF: ");
+            cpfCliente = Console.lerString();
+            if (cpfCliente.equals("0")){
+                System.out.println("CPF NÃO PODE SER '0', TENTE NOVAMENTE...");
+            }
+        } while (cpfCliente.equals("0"));
         System.out.print("EMAIL: ");
         String emailCliente = Console.lerString();
         Cliente cliente = new Cliente(nomeCliente, cpfCliente, telefoneCliente, emailCliente);
@@ -36,8 +84,14 @@ public class Sistema {
         String nomeCorretor = Console.lerString();
         System.out.print("TELEFONE: ");
         String cpfCorretor = Console.lerString();
-        System.out.print("MATRÍCULA: ");
-        int matriculaCorretor = Console.lerInt();
+        int matriculaCorretor;
+        do {
+            System.out.print("MATRÍCULA: ");
+            matriculaCorretor = Console.lerInt();
+            if (matriculaCorretor == 0){
+                System.out.println("MATRICULA NÃO PODE SER '0', TENTE NOVAMENTE...");
+            }
+        } while (matriculaCorretor == 0);
         System.out.print("UNIDADE: ");
         String unidadeCorretor = Console.lerString();
         Corretor corretor = new Corretor(nomeCorretor, cpfCorretor, matriculaCorretor, unidadeCorretor);
@@ -275,6 +329,11 @@ public class Sistema {
                 op8 = Console.lerInt();
                 switch (op8) {
                     case 1:
+                        int ver;
+                        ver = menuBemVindoCliente();
+                        if (ver == 1){
+                            return;
+                        }
                         break;
 
                     case 2:
@@ -382,6 +441,10 @@ public class Sistema {
                 op8 = Console.lerInt();
                 switch (op8) {
                     case 1:
+                        int ver = menuBemVindoCorretor();
+                        if (ver == 1){
+                            return;
+                        }
                         break;
 
                     case 2:
